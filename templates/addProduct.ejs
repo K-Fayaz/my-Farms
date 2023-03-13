@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add New Product</title>
+  </head>
+  <body>
+    <h1> <%= farm.name %></h1>
+    <h2>Add New Product..</h2>
+    <form class="" action="/farms/<%= farm._id %>" method="post">
+      <div class="">
+        <label  for="name">Name</label>
+        <input id="name" type="text" name="name" placeholder="Name of the Product">
+      </div><br>
+        <div class="">
+          <label  for="price">Price</label>
+          <input id="price" type="number" name="price" placeholder=" Price of the Product">
+        </div><br>
+        <div class="">
+          <label  for="type">Type:</label>
+          <input id="type" type="text" name="type" placeholder="type of the Product">
+        </div><br>
+        <button>Submit</button>
+    </form>
+  </body>
+</html>

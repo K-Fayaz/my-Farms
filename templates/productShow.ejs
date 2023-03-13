@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= product.name %></title>
+  </head>
+  <body>
+    <% if(product.farm) { %>
+      <h1 style="display:inline"><%= product.name %></h1>
+      <sub>From <a href="/farms/<%= product.farm._ %>"><%= product.farm.name %></a></sub>
+      <b><p>Price($) :<%= product.price %> / Kg</p></b>
+      <b><p>category :<%= product.type %></p></b>
+    <% } %>
+    <% if(!product.farm) { %>
+      <h2><%= product.name %></h2>
+      <b><p>Price :<%= product.price %>/Kg</p></b>
+      <b><p>category :<%= product.type %></p></b>
+    <% } %>
+  </body>
+</html>

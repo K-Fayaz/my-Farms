@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= farm.name %> | Show </title>
+  </head>
+  <body>
+      <h1><%= farm.name %></h1>
+      <b><p>Contact :<%= farm.contactNumber %></p></b>
+      <b><p>Email :<%= farm.email %></p></b>
+      <% if(farm.product.length) { %>
+        <h2>Our Products...</h2>
+        <% for(let farms of farm.product) {%>
+          <a href="/products/<%= farms._id %>"><ul><li><b><p><%= farms.name  %></p></b></li></ul></a>
+        <% } %>
+      <% } %>
+      <% if(!farm.product.length) { %>
+        <h2>No Products From This farm !</h2>
+      <% } %>
+      <a href="/farms/<%= farm._id %>/addNewProduct">Add a new Product To this Farm ?</a>
+  </body>
+</html>

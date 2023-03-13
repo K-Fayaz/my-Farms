@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2 class=""><%= message %></h2>
+    <h1>All farms are Here !!</h1>
+    <% for(let farm of farms) {%>
+        <ul>
+          <a href="/farms/<%= farm._id %>"><li><h2><%= farm.name %></h2></li></a>
+        </ul>
+    <% } %>
+    <div class="link">
+      <a href="/products">All Products</a><br>
+      <a href="/Farms/new">Add New Farm</a>
+    </div>
+  </body>
+</html>

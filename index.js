@@ -11,7 +11,9 @@ const sessionOption = {secret:'ThisIsNotaGoodSEcret',resave:false,saveUninitiali
 const atlasUrl = "mongodb+srv://fayazkudremane3000:yepAXXvmr0KDbRAL@cluster0.rmjzaoy.mongodb.net/?retryWrites=true&w=majority";
 // mongodb://127.0.0.1:27017/farms-new
 
-mongoose.connect(atlasUrl,{ useNewUrlParser: true })
+const DBURL = process.env.DBURL || "mongodb://127.0.0.1:27017/farms-new";
+
+mongoose.connect(DBURL,{ useNewUrlParser: true })
   .then(()=>{
     console.log("Mongoose Server Conncetion Esatblished")
   })
@@ -88,6 +90,9 @@ app.get('/products/:id',async(req,res)=>{
   // console.log(product)
   res.render('productShow',{ product })
 })
-app.listen(3000, ()=>{
-  console.log("listening to the PORT 3000");
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, ()=>{
+  console.log(`listening to the PORT ${PORT}`);
 })

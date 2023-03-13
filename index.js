@@ -13,6 +13,15 @@ const atlasUrl = "mongodb+srv://fayazkudremane3000:yepAXXvmr0KDbRAL@cluster0.rmj
 
 const DBURL = process.env.DBURL || "mongodb://127.0.0.1:27017/farms-new";
 
+mongoose.connect(atlasUrl,{ useNewUrlParser: true })
+  .then(()=>{
+    console.log("Mongoose Server Conncetion Esatblished");
+  })
+  .catch((e)=>{
+    console.log("Mongoose Server Connection Lost");
+    console.log(e)
+  })
+
 app.use(express.urlencoded({ extended:true }));
 app.use(session(sessionOption));
 app.use(flash());
@@ -22,21 +31,6 @@ app.use((req,res,next)=>{
 })
 app.set('views',path.join(__dirname,'templates'));
 app.set('view engine','ejs')
-
-
-const PORT = process.env.PORT || 8080;
-
-mongoose.connect(DBURL,{ useNewUrlParser: true })
-  .then(()=>{
-    console.log("Mongoose Server Conncetion Esatblished");
-//     app.listen(PORT, ()=>{
-//       console.log(`listening to the PORT ${PORT}`);
-//      })
-  })
-  .catch((e)=>{
-    console.log("Mongoose Server Connection Lost");
-    console.log(e)
-  })
 
 app.get('/farms',async (req,res)=>{
   const farms = await Farm.find();
@@ -96,7 +90,7 @@ app.get('/products/:id',async(req,res)=>{
   res.render('productShow',{ product })
 })
 
-// const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, ()=>{
   console.log(`listening to the PORT ${PORT}`);

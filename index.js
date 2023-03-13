@@ -8,8 +8,10 @@ const flash =  require('connect-flash');
 const session = require('express-session');
 const sessionOption = {secret:'ThisIsNotaGoodSEcret',resave:false,saveUninitialized:false}
 
+const atlasUrl = "mongodb+srv://fayazkudremane3000:yepAXXvmr0KDbRAL@cluster0.rmjzaoy.mongodb.net/?retryWrites=true&w=majority";
+// mongodb://127.0.0.1:27017/farms-new
 
-mongoose.connect('mongodb://127.0.0.1:27017/farms-new',{ useNewUrlParser: true })
+mongoose.connect(atlasUrl,{ useNewUrlParser: true })
   .then(()=>{
     console.log("Mongoose Server Conncetion Esatblished")
   })

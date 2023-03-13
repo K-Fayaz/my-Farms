@@ -8,19 +8,19 @@ const flash =  require('connect-flash');
 const session = require('express-session');
 const sessionOption = {secret:'ThisIsNotaGoodSEcret',resave:false,saveUninitialized:false}
 
-const atlasUrl = "mongodb+srv://fayazkudremane3000:yepAXXvmr0KDbRAL@cluster0.rmjzaoy.mongodb.net/?retryWrites=true&w=majority";
-// mongodb://127.0.0.1:27017/farms-new
 
-const DBURL = process.env.DBURL || "mongodb://127.0.0.1:27017/farms-new";
+// const atlasUrl = "mongodb+srv://fayazkudremane3000:yepAXXvmr0KDbRAL@cluster0.rmjzaoy.mongodb.net/?retryWrites=true&w=majority";
+const atlasUrl = "mongodb+srv://fayazkudremane3000:MBcjcRpc49Ktm214@cluster0.skgcv6i.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(atlasUrl,{ useNewUrlParser: true })
+mongoose.connect(atlasUrl,{ useNewUrlParser: true , useUnifiedTopology: true })
   .then(()=>{
-    console.log("Mongoose Server Conncetion Esatblished");
+    console.log("Mongoose Server Conncetion Esatblished")
   })
   .catch((e)=>{
     console.log("Mongoose Server Connection Lost");
     console.log(e)
   })
+
 
 app.use(express.urlencoded({ extended:true }));
 app.use(session(sessionOption));
@@ -89,9 +89,6 @@ app.get('/products/:id',async(req,res)=>{
   // console.log(product)
   res.render('productShow',{ product })
 })
-
-const PORT = process.env.PORT || 8080;
-
-app.listen(PORT, ()=>{
-  console.log(`listening to the PORT ${PORT}`);
+app.listen(3000, ()=>{
+  console.log("listening to the PORT 3000");
 })

@@ -29,9 +29,9 @@ const PORT = process.env.PORT || 8080;
 mongoose.connect(DBURL,{ useNewUrlParser: true })
   .then(()=>{
     console.log("Mongoose Server Conncetion Esatblished");
-    app.listen(PORT, ()=>{
-      console.log(`listening to the PORT ${PORT}`);
-     })
+//     app.listen(PORT, ()=>{
+//       console.log(`listening to the PORT ${PORT}`);
+//      })
   })
   .catch((e)=>{
     console.log("Mongoose Server Connection Lost");
@@ -98,6 +98,6 @@ app.get('/products/:id',async(req,res)=>{
 
 // const PORT = process.env.PORT || 8080;
 
-// app.listen(PORT, ()=>{
-//   console.log(`listening to the PORT ${PORT}`);
-// })
+app.listen(PORT, ()=>{
+  console.log(`listening to the PORT ${PORT}`);
+})
